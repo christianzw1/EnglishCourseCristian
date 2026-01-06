@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 05 - Super Resumo | English Course</title>
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <script type="module" src="./auth-guard.js"></script>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container">
+            <h1 class="logo">Teacher <span>Cristian</span></h1>
+            <ul class="menu">
+                <li><a href="./index.html">← Voltar para Home</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section class="aula-header">
+            <span class="tag">Review Class</span>
+            <h2>Aula 05: Super Resumo de Gramática</h2>
+            <p>Vamos recuperar o conteúdo perdido! Revisão completa de To Be, Simple Past e Wh- Questions.</p>
+        </section>
+
+        <section class="video-container" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; background: #000;">
+            <iframe 
+                src="https://drive.google.com/file/d/1McGDO1OOSaUKA0tDGj9IlxoDDFgWMnSW/preview" 
+                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;"
+                allow="autoplay; fullscreen"
+                allowfullscreen>
+            </iframe>
+        </section>
+
+        <section class="conteudo-apoio">
+            
+            <h3>1. Verbo "To Be" (Ser ou Estar)</h3>
+            <p>A base de tudo. Lembre-se das três formas: <strong>Am, Is, Are</strong>.</p>
+            
+            <div class="rules-grid">
+                <div class="rule-card">
+                    <h4>✅ Afirmativa</h4>
+                    <ul class="example-list">
+                        <li>I <strong>am</strong> a student.</li>
+                        <li>He/She <strong>is</strong> happy.</li>
+                        <li>We/They <strong>are</strong> at school.</li>
+                    </ul>
+                </div>
+
+                <div class="rule-card" style="border-left-color: #d63031;">
+                    <h4>❌ Negativa (+NOT)</h4>
+                    <p>Basta adicionar NOT após o verbo.</p>
+                    <ul class="example-list">
+                        <li>I am <strong>not</strong>...</li>
+                        <li>She is <strong>not</strong> (isn't)...</li>
+                        <li>We are <strong>not</strong> (aren't)...</li>
+                    </ul>
+                </div>
+
+                <div class="rule-card" style="border-left-color: #6c5ce7;">
+                    <h4>❓ Interrogativa (Inversão)</h4>
+                    <p>Inverta o verbo com o sujeito.</p>
+                    <ul class="example-list">
+                        <li><strong>Is</strong> she sad?</li>
+                        <li><strong>Are</strong> you happy?</li>
+                    </ul>
+                </div>
+            </div>
+
+            <hr style="margin: 3rem 0; border: 0; border-top: 1px solid #eee;">
+
+            <h3>2. Simple Past (Passado)</h3>
+            <p>Usamos para ações que já acabaram no passado.</p>
+            
+            <div class="highlight-box">
+                <h4>📝 Regra do "-ED"</h4>
+                <p>Para a maioria dos verbos (regulares), basta adicionar <strong>-ed</strong> ao final para indicar passado.</p>
+                <ul class="uses-list" style="margin-top: 15px;">
+                    <li>Walk (Andar) → <strong>Walked</strong></li>
+                    <li>Play (Brincar) → <strong>Played</strong></li>
+                    <li>Watch (Assistir) → <strong>Watched</strong></li>
+                </ul>
+            </div>
+
+            <hr style="margin: 3rem 0; border: 0; border-top: 1px solid #eee;">
+
+            <h3>3. Wh- Questions</h3>
+            <p>As perguntas específicas para descobrir detalhes.</p>
+
+            <div class="wh-grid">
+                <div class="wh-card">
+                    <h4>👤 Who (Quem)</h4>
+                    <p>Para pessoas. <br><em>"Who is she?"</em></p>
+                </div>
+                <div class="wh-card">
+                    <h4>📦 What (O que/Qual)</h4>
+                    <p>Para coisas. <br><em>"What is that?"</em></p>
+                </div>
+                <div class="wh-card">
+                    <h4>📍 Where (Onde)</h4>
+                    <p>Para lugares. <br><em>"Where are you?"</em></p>
+                </div>
+                <div class="wh-card">
+                    <h4>🕒 When (Quando)</h4>
+                    <p>Para tempo. <br><em>"When is the party?"</em></p>
+                </div>
+                <div class="wh-card">
+                    <h4>❓ Why (Por que)</h4>
+                    <p>Para motivos. <br><em>"Why are you late?"</em></p>
+                </div>
+            </div>
+
+            <div class="highlight-box" style="background: #f8f9fa; border-left: 5px solid #00cec9; margin-top: 2rem;">
+                <h4>🧪 A Fórmula da Pergunta</h4>
+                <p style="font-size: 1.1rem; font-weight: bold; color: #2d3436;">
+                    Wh- + Auxiliar + Pessoa + Ação?
+                </p>
+                <p style="margin-top: 5px;">Ex: <em>Where did you go?</em> (Onde você foi?)</p>
+            </div>
+
+        </section>
+
+        <section class="quiz-container">
+            <h3>🏆 Final Review Quiz</h3>
+            <p>Vamos testar se você lembra de tudo!</p>
+            
+            <form id="quiz-aula05">
+                
+                <div class="pergunta">
+                    <p><strong>1. To Be (Negative):</strong> "She _____ happy today."</p>
+                    <label><input type="radio" name="q1" value="wrong"> not is</label>
+                    <label><input type="radio" name="q1" value="correct"> isn't</label>
+                    <label><input type="radio" name="q1" value="wrong"> aren't</label>
+                </div>
+
+                <div class="pergunta">
+                    <p><strong>2. Past Tense:</strong> "Yesterday, I _____ TV."</p>
+                    <label><input type="radio" name="q2" value="wrong"> watch</label>
+                    <label><input type="radio" name="q2" value="correct"> watched</label>
+                    <label><input type="radio" name="q2" value="wrong"> watching</label>
+                </div>
+
+                <div class="pergunta">
+                    <p><strong>3. Wh- Question:</strong> "_____ is your teacher?" (I want to know the person)</p>
+                    <label><input type="radio" name="q3" value="correct"> Who</label>
+                    <label><input type="radio" name="q3" value="wrong"> Where</label>
+                    <label><input type="radio" name="q3" value="wrong"> When</label>
+                </div>
+
+                <button type="submit" class="btn-check">Verificar Resultado</button>
+            </form>
+            <div id="resultado"></div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Teacher Cristian &copy; 2024</p>
+    </footer>
+
+    <script>
+        document.getElementById('quiz-aula05').addEventListener('submit', function(e) {
+            e.preventDefault();
+            let score = 0;
+            const total = 3;
+            const correctAnswers = this.querySelectorAll('input[value="correct"]:checked');
+            score = correctAnswers.length;
+            const resultDiv = document.getElementById('resultado');
+            
+            if(score === total) {
+                resultDiv.innerHTML = `<div style="background:#d4edda; color:#155724; padding:15px; border-radius:5px; margin-top:10px;">
+                    Perfect! 🌟 Você recuperou todo o conteúdo!
+                </div>`;
+            } else {
+                resultDiv.innerHTML = `<div style="background:#fff3cd; color:#856404; padding:15px; border-radius:5px; margin-top:10px;">
+                    Nice try! Você acertou ${score} de ${total}. Revise os pontos que errou!
+                </div>`;
+            }
+        });
+    </script>
+</body>
+</html>

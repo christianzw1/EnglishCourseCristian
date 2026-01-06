@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | English Classes</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <script type="module" src="./auth-guard.js"></script>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container">
+            <h1 class="logo">Teacher <span>Cristian</span></h1>
+            <ul class="menu">
+    <li><a href="#" class="active">Home</a></li>
+    <li><a href="#aulas">Aulas</a></li>
+    <li><a href="./trocar-senha.html">Minha Conta / Senha</a></li>
+    <li><a href="#" id="btn-logout" style="color: #e74c3c;">Sair</a></li>
+</ul>
+        </div>
+        
+    </nav>
+
+    <header class="hero">
+        <div class="container hero-content">
+            <h2>Welcome, Student! 🇺🇸</h2>
+            <p>Este é o seu espaço para revisar o conteúdo, assistir às aulas gravadas e praticar com exercícios.</p>
+            <a href="#aulas" class="btn-primary">Ir para as aulas</a>
+        </div>
+    </header>
+
+    <section id="aulas" class="classes-section">
+        <div class="container">
+            <h3 class="section-title">Aulas Disponíveis</h3>
+            
+            <div class="classes-grid">
+                
+                <article class="class-card">
+    <div class="card-image" style="background-image: url('./imagens/aula01.png');"></div>
+    
+    <div class="card-content">
+        <span class="tag">Grammar</span>
+        <h4>Aula 01: Verb To Be</h4>
+        <p>Aprenda a estrutura básica de ser e estar no presente.</p>
+        <a href="./aula01.html" class="btn-card">Assistir Aula</a>
+    </div>
+</article>
+
+                <article class="class-card">
+    <div class="card-image aula-2" style="background-image: url('./imagens/aula02.png');"></div>
+    <div class="card-content">
+        <span class="tag">Vocabulary</span>
+        <h4>Aula 02: Wh- Questions</h4>
+        <p>Aprenda a usar What, Where, When, Who e Why.</p>
+        <a href="./aula02.html" class="btn-card">Assistir Aula</a>
+    </div>
+</article>
+
+                <article class="class-card">
+    <div class="card-image aula-3" style="background-image: url('./imagens/aula03.png');"></div>
+    <div class="card-content">
+        <span class="tag">Grammar</span>
+        <h4>Aula 03: Simple Past</h4>
+        <p>Como falar do passado usando verbos regulares (+ed).</p>
+        <a href="./aula03.html" class="btn-card">Assistir Aula</a>
+    </div>
+</article>
+
+<article class="class-card">
+    <div class="card-image aula-4" style="background-image: url('./imagens/aula04.png');"></div>
+    <div class="card-content">
+        <span class="tag">Travel / Speaking</span>
+        <h4>Aula 04: At the Airport</h4>
+        <p>Aprenda a passar pela imigração sem medo.</p>
+        <a href="./aula04.html" class="btn-card">Assistir Aula</a>
+    </div>
+</article>
+
+<article class="class-card">
+    <div class="card-image aula-5" style="background-image: url('./imagens/aula05.png');"></div>
+    <div class="card-content">
+        <span class="tag">Review / Resumo</span>
+        <h4>Aula 05: Super Resumo</h4>
+        <p>Revisão de To Be, Passado e Wh- Questions.</p>
+        <a href="./aula05.html" class="btn-card">Assistir Aula</a>
+    </div>
+</article>
+
+<article class="class-card">
+    <div class="card-image aula-6" style="background-image: url('./imagens/aula06.png');"></div>
+    <div class="card-content">
+        <span class="tag">Grammar</span>
+        <h4>Aula 06: DO vs DID</h4>
+        <p>Nunca mais confunda perguntas no presente e no passado.</p>
+        <a href="./aula06.html" class="btn-card">Assistir Aula</a>
+    </div>
+</article>
+
+<article class="class-card">
+    <div class="card-image aula-7" style="background-image: url('./imagens/aula07.png');"></div>
+    <div class="card-content">
+        <span class="tag">Grammar</span>
+        <h4>Aula 07: Verbo CAN</h4>
+        <p>Habilidades e Permissões (sem cometer erros comuns).</p>
+        <a href="./aula07.html" class="btn-card">Assistir Aula</a>
+    </div>
+</article>
+
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>Desenvolvido para minhas alunas incríveis.</p>
+    </footer>
+<script type="module">
+    import { signOut } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+    import { auth } from "./firebase-config.js";
+
+    const btnLogout = document.getElementById('btn-logout');
+    if(btnLogout) {
+        btnLogout.addEventListener('click', async (e) => {
+            e.preventDefault();
+            await signOut(auth);
+            window.location.href = "login.html"; // Manda de volta pro login
+        });
+    }
+</script>
+</body>
+</html>

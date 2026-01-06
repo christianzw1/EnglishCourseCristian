@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 06 - DO vs DID | English Course</title>
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <script type="module" src="./auth-guard.js"></script>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container">
+            <h1 class="logo">Teacher <span>Cristian</span></h1>
+            <ul class="menu">
+                <li><a href="./index.html">← Voltar para Home</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section class="aula-header">
+            <span class="tag">Grammar Class</span>
+            <h2>Aula 06: Perguntas com DO e DID</h2>
+            <p>O segredo para fazer perguntas em inglês: entenda quando usar cada "ajudante".</p>
+        </section>
+
+        <section class="video-container" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; background: #000;">
+            <iframe 
+                src="https://drive.google.com/file/d/1tJDSE-iOw5cAWSaYYeCkOe_K9wZSL05D/preview" 
+                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;"
+                allow="autoplay; fullscreen"
+                allowfullscreen>
+            </iframe>
+        </section>
+
+        <section class="conteudo-apoio">
+            
+            <h3>O Segredo dos Auxiliares</h3>
+            <p>Em português, mudamos a entonação da voz para fazer perguntas. Em inglês, precisamos de palavras "ajudantes" (Auxiliares) que avisam: <em>"Atenção, vem uma pergunta aí!"</em>.</p>
+
+            <div class="aux-grid">
+                
+                <div class="aux-card do-card">
+                    <h3>DO (Presente / Rotina)</h3>
+                    <p>Usamos para coisas que acontecem hoje, rotinas ou gostos pessoais.</p>
+                    
+                    <div class="formula">DO + Pessoa + Ação?</div>
+                    
+                    <ul class="example-list">
+                        <li><strong>Do</strong> you drink coffee? <br><em>(Você bebe café?)</em></li>
+                        <li><strong>Do</strong> you live here? <br><em>(Você mora aqui?)</em></li>
+                        <li><strong>Do</strong> we need money? <br><em>(Nós precisamos de dinheiro?)</em></li>
+                    </ul>
+                </div>
+
+                <div class="aux-card did-card">
+                    <h3>DID (Passado / Ontem)</h3>
+                    <p>Usamos para TUDO que já aconteceu. Ontem, ano passado, semana passada.</p>
+                    
+                    <div class="formula">DID + Pessoa + Ação?</div>
+                    
+                    <ul class="example-list">
+                        <li><strong>Did</strong> you go to the beach? <br><em>(Você foi à praia?)</em></li>
+                        <li><strong>Did</strong> you see the movie? <br><em>(Você viu o filme?)</em></li>
+                        <li><strong>Did</strong> she call you? <br><em>(Ela te ligou?)</em></li>
+                    </ul>
+
+                    <div class="tip-box">
+                        <strong>Dica de Ouro:</strong> Perceba que o verbo (go, see, call) fica "normal". O <strong>DID</strong> já fez o trabalho de indicar o passado!
+                    </div>
+                </div>
+
+            </div>
+
+            <h3>Comparação Lado a Lado</h3>
+            <p>Veja como uma simples palavra muda todo o sentido da frase:</p>
+            
+            <table class="grammar-table">
+                <thead>
+                    <tr>
+                        <th style="background-color: #2ecc71;">DO (Hoje)</th>
+                        <th style="background-color: #e67e22;">DID (Ontem)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Do</strong> you work today?<br><em>(Você trabalha hoje?)</em></td>
+                        <td><strong>Did</strong> you work yesterday?<br><em>(Você trabalhou ontem?)</em></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Do</strong> they study?<br><em>(Eles estudam? - Rotina)</em></td>
+                        <td><strong>Did</strong> they study?<br><em>(Eles estudaram? - Passado)</em></td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </section>
+
+        <section class="quiz-container">
+            <h3>🧠 Vamos Praticar!</h3>
+            <p>Complete as frases com DO ou DID baseado no contexto (Presente ou Passado).</p>
+            
+            <form id="quiz-aula06">
+                
+                <div class="pergunta">
+                    <p><strong>1. Gosto Pessoal (Presente):</strong> "_____ you like pepperoni?"</p>
+                    <label><input type="radio" name="q1" value="correct"> Do</label>
+                    <label><input type="radio" name="q1" value="wrong"> Did</label>
+                </div>
+
+                <div class="pergunta">
+                    <p><strong>2. Festa (Passado):</strong> "_____ you go to the party?"</p>
+                    <label><input type="radio" name="q2" value="wrong"> Do</label>
+                    <label><input type="radio" name="q2" value="correct"> Did</label>
+                </div>
+
+                <div class="pergunta">
+                    <p><strong>3. Rotina (Todo dia):</strong> "_____ they study everyday?"</p>
+                    <label><input type="radio" name="q3" value="correct"> Do</label>
+                    <label><input type="radio" name="q3" value="wrong"> Did</label>
+                </div>
+
+                <button type="submit" class="btn-check">Verificar Respostas</button>
+            </form>
+            <div id="resultado"></div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Teacher Cristian &copy; 2024</p>
+    </footer>
+
+    <script>
+        document.getElementById('quiz-aula06').addEventListener('submit', function(e) {
+            e.preventDefault();
+            let score = 0;
+            const total = 3;
+            const correctAnswers = this.querySelectorAll('input[value="correct"]:checked');
+            score = correctAnswers.length;
+            const resultDiv = document.getElementById('resultado');
+            
+            if(score === total) {
+                resultDiv.innerHTML = `<div style="background:#d4edda; color:#155724; padding:15px; border-radius:5px; margin-top:10px;">
+                    Excellent! 🌟 Você sabe diferenciar Presente e Passado!
+                </div>`;
+            } else {
+                resultDiv.innerHTML = `<div style="background:#fff3cd; color:#856404; padding:15px; border-radius:5px; margin-top:10px;">
+                    Nice try! Você acertou ${score} de ${total}. Lembre-se: Rotina = Do, Passado = Did.
+                </div>`;
+            }
+        });
+    </script>
+</body>
+</html>

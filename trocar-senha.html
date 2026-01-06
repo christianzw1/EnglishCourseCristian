@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trocar Senha | Teacher Cristian</title>
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <script type="module" src="./auth-guard.js"></script>
+
+    <style>
+        /* Um estilo extra só para centralizar o formulário */
+        .password-container {
+            max-width: 500px;
+            margin: 50px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; margin-bottom: 5px; font-weight: bold; color: #2c3e50; }
+        .form-group input { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px; }
+        .btn-save { 
+            background-color: #27ae60; color: white; border: none; padding: 10px 20px; 
+            border-radius: 5px; cursor: pointer; font-size: 1rem; width: 100%;
+        }
+        .btn-save:hover { background-color: #219150; }
+        #msg-status { margin-top: 15px; text-align: center; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container">
+            <h1 class="logo">Teacher <span>Cristian</span></h1>
+            <ul class="menu">
+                <li><a href="./index.html">← Voltar para Aulas</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="password-container">
+            <h2>🔐 Alterar Minha Senha</h2>
+            <p style="margin-bottom: 20px; color: #666;">Digite sua nova senha abaixo.</p>
+            
+            <form id="change-password-form">
+                <div class="form-group">
+                    <label>Nova Senha</label>
+                    <input type="password" id="new-password" required minlength="6" placeholder="Mínimo 6 caracteres">
+                </div>
+                <div class="form-group">
+                    <label>Confirmar Nova Senha</label>
+                    <input type="password" id="confirm-password" required placeholder="Repita a senha">
+                </div>
+                <button type="submit" class="btn-save">Salvar Nova Senha</button>
+            </form>
+            <p id="msg-status"></p>
+        </div>
+    </main>
+
+    <script type="module">
+        import { updatePassword } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+        import { auth } from "./firebase-config.js";
+
+        const form = document.getElementById('change-password-form');
+        const msgStatus = document.getElementById('msg-status');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const newPass = document.getElementById('new-password').value;
+            const confirmPass = document.getElementById('confirm-password').value;
+            const user = auth.currentUser;
+
+            // 1. Validação simples
+            if (newPass !== confirmPass) {
+                msgStatus.style.color = "red";
+                msgStatus.textContent = "As senhas não coincidem!";
+                return;
+            }
+
+            if (user) {
+                try {
+                    msgStatus.textContent = "Atualizando...";
+                    // 2. Chama a função do Firebase que troca a senha
+                    await updatePassword(user, newPass);
+                    
+                    msgStatus.style.color = "green";
+                    msgStatus.textContent = "Senha alterada com sucesso! 🎉";
+                    form.reset();
+                } catch (error) {
+                    console.error(error);
+                    msgStatus.style.color = "red";
+                    // Tratamento de um erro comum (sessão antiga)
+                    if (error.code === 'auth/requires-recent-login') {
+                        msgStatus.textContent = "Por segurança, faça logout e login novamente antes de trocar a senha.";
+                    } else {
+                        msgStatus.textContent = "Erro ao atualizar. Tente novamente.";
+                    }
+                }
+            } else {
+                msgStatus.textContent = "Usuário não identificado.";
+            }
+        });
+    </script>
+</body>
+</html>
