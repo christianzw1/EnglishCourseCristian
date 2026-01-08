@@ -572,3 +572,74 @@ footer {
 
 .icon-x::before { content: "❌ "; }
 .icon-check::before { content: "✅ "; }
+
+/* --- ESTILOS PARA DIÁLOGO (LISTENING) - VERSÃO MELHORADA --- */
+.dialogue-section {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    margin: 2rem 0;
+}
+
+.audio-player {
+    width: 100%;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    background: #f8f9fa; /* Fundo para o player */
+    border-radius: 8px;
+    padding: 10px;
+}
+
+.transcript {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Espaço entre as falas */
+}
+
+.dialogue-line {
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 4px solid transparent; /* Prepara para a cor lateral */
+}
+
+/* --- O SEGREDINHO: Cores alternadas para facilitar a leitura --- */
+/* Linhas ímpares (Passenger) ficam com fundo branco */
+.dialogue-line:nth-child(odd) {
+    background-color: #ffffff;
+    border: 1px solid #eee;
+    border-left: 4px solid var(--primary-color); /* Azul do aluno */
+}
+
+/* Linhas pares (Agent) ficam com fundo cinza claro */
+.dialogue-line:nth-child(even) {
+    background-color: #f8f9fa;
+    border-left: 4px solid #e74c3c; /* Vermelho do agente */
+}
+
+.speaker-label {
+    font-weight: bold;
+    margin-right: 8px;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+}
+
+/* Cores específicas para os labels */
+.dialogue-line:nth-child(odd) .speaker-label { color: var(--primary-color); }
+.dialogue-line:nth-child(even) .speaker-label { color: #e74c3c; }
+
+.text-en {
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: #2c3e50;
+    margin-bottom: 5px;
+    line-height: 1.4;
+}
+
+.text-pt {
+    font-size: 0.9rem;
+    color: #7f8c8d;
+    font-style: italic;
+    margin-left: 20px; /* Um pequeno recuo para a tradução */
+}
