@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 09 - There Is/Are | English Course</title>
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <script type="module" src="./auth-guard.js"></script>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container">
+            <h1 class="logo">Teacher <span>Cristian</span></h1>
+            <ul class="menu">
+                <li><a href="./index.html">← Voltar para Home</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section class="aula-header">
+            <span class="tag">Grammar & Vocabulary</span>
+            <h2>Aula 09: Inglês para Equipes de Aeroporto</h2>
+            <p>Domine o uso de <strong>There Is</strong> e <strong>There Are</strong> para descrever o que existe ao seu redor.</p>
+        </section>
+
+        <section class="video-container" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; background: #000;">
+            <iframe 
+                src="https://drive.google.com/file/d/1vPQ5YBbo2PoRhRJ3Fpaxml2CQeuBj3zn/preview" 
+                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;"
+                allow="autoplay; fullscreen"
+                allowfullscreen>
+            </iframe>
+        </section>
+
+        <section class="conteudo-apoio">
+            <h3>1. Vocabulário Útil (Airport Vocabulary)</h3>
+            <p>Antes da gramática, vamos aprender onde estamos:</p>
+            
+            <div class="vocab-grid">
+                <div class="vocab-card">
+                    <span class="vocab-icon">🚪</span>
+                    <span class="vocab-word">The Gate</span>
+                    <span class="vocab-translation">Portão de Embarque</span>
+                </div>
+                <div class="vocab-card">
+                    <span class="vocab-icon">🧳</span>
+                    <span class="vocab-word">Baggage Claim</span>
+                    <span class="vocab-translation">Retirada de Bagagem</span>
+                </div>
+                <div class="vocab-card">
+                    <span class="vocab-icon">🎫</span>
+                    <span class="vocab-word">Boarding Pass</span>
+                    <span class="vocab-translation">Cartão de Embarque</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="conteudo-apoio">
+            <h3>2. O Significado: Haver / Existir</h3>
+            <p>Usamos essa estrutura para dizer que algo está ali. A regra é simples: conte quantos objetos existem.</p>
+
+            <div class="rules-grid">
+                
+                <div class="rule-card" style="border-left-color: #3498db;">
+                    <h4>1️⃣ Singular (Um)</h4>
+                    <p>Use <strong>There is</strong> para uma única coisa ou pessoa.</p>
+                    <ul class="example-list">
+                        <li>"<strong>There is</strong> a passport on the counter." <br><em>(Há um passaporte no balcão)</em></li>
+                        <li>"<strong>There is</strong> a delay." <br><em>(Há um atraso)</em></li>
+                    </ul>
+                    <div class="tip-box">
+                        <strong>Contração:</strong> There is = <strong>There's</strong>
+                    </div>
+                </div>
+
+                <div class="rule-card" style="border-left-color: #f1c40f;">
+                    <h4>🔢 Plural (Dois ou mais)</h4>
+                    <p>Use <strong>There are</strong> para múltiplos itens.</p>
+                    <ul class="example-list">
+                        <li>"<strong>There are</strong> two pilots." <br><em>(Há dois pilotos)</em></li>
+                        <li>"<strong>There are</strong> many flights." <br><em>(Há muitos voos)</em></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <hr style="margin: 2rem 0; border: 0; border-top: 1px solid #eee;">
+
+            <h3>3. Negativa e Perguntas</h3>
+            <p>Como dizer que "não tem" ou perguntar "tem algum...?"</p>
+
+            <table class="grammar-table">
+                <thead>
+                    <tr>
+                        <th>Tipo</th>
+                        <th>Singular (1)</th>
+                        <th>Plural (2+)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Negativa (❌)</strong></td>
+                        <td><strong>There isn't</strong> a flight.<br><em>(Não há um voo)</em></td>
+                        <td><strong>There aren't</strong> any seats.<br><em>(Não há assentos)</em></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Pergunta (❓)</strong></td>
+                        <td><strong>Is there</strong> a problem?<br><em>(Há um problema?)</em></td>
+                        <td><strong>Are there</strong> delays?<br><em>(Há atrasos?)</em></td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </section>
+
+        <section class="quiz-container">
+            <h3>🧠 Quiz: Airport Scenarios</h3>
+            <p>Escolha a opção correta para completar as frases.</p>
+            
+            <form id="quiz-aula09">
+                
+                <div class="pergunta">
+                    <p><strong>1. Singular:</strong> "_____ a restroom near Gate 10." (Afirmativa)</p>
+                    <label><input type="radio" name="q1" value="wrong"> There are</label>
+                    <label><input type="radio" name="q1" value="correct"> There is</label>
+                    <label><input type="radio" name="q1" value="wrong"> Is there</label>
+                </div>
+
+                <div class="pergunta">
+                    <p><strong>2. Plural:</strong> "_____ five bags on the belt." (Afirmativa)</p>
+                    <label><input type="radio" name="q2" value="correct"> There are</label>
+                    <label><input type="radio" name="q2" value="wrong"> There is</label>
+                    <label><input type="radio" name="q2" value="wrong"> There isn't</label>
+                </div>
+
+                <div class="pergunta">
+                    <p><strong>3. Pergunta (Question):</strong> "_____ any shops inside?"</p>
+                    <label><input type="radio" name="q3" value="wrong"> There are</label>
+                    <label><input type="radio" name="q3" value="wrong"> Is there</label>
+                    <label><input type="radio" name="q3" value="correct"> Are there</label>
+                </div>
+
+                <button type="submit" class="btn-check">Verificar Respostas</button>
+            </form>
+            <div id="resultado"></div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Teacher Cristian &copy; 2024</p>
+    </footer>
+
+    <script>
+        document.getElementById('quiz-aula09').addEventListener('submit', function(e) {
+            e.preventDefault();
+            let score = 0;
+            const total = 3;
+            const correctAnswers = this.querySelectorAll('input[value="correct"]:checked');
+            score = correctAnswers.length;
+            const resultDiv = document.getElementById('resultado');
+            
+            if(score === total) {
+                resultDiv.innerHTML = `<div style="background:#d4edda; color:#155724; padding:15px; border-radius:5px; margin-top:10px;">
+                    Excellent! 🌟 Você domina o There Is / There Are!
+                </div>`;
+            } else {
+                resultDiv.innerHTML = `<div style="background:#fff3cd; color:#856404; padding:15px; border-radius:5px; margin-top:10px;">
+                    Good try! Você acertou ${score} de ${total}. Lembre-se: Singular = Is, Plural = Are.
+                </div>`;
+            }
+        });
+    </script>
+</body>
+</html>
