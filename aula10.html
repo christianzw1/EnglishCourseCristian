@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 10 - Check-in com Animais | Teacher Cristian</title>
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <script type="module" src="./auth-guard.js"></script>
+
+    <style>
+        /* --- ESTILOS ESPECÍFICOS DESTA AULA (ATIVIDADES) --- */
+        
+        .activity-box {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            border: 1px solid #e1e1e1;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .activity-title {
+            color: var(--primary-color, #4a90e2); /* Usa azul padrão se a variável falhar */
+            font-weight: 700;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        /* Estilos para Selects e Inputs */
+        .match-row, .gap-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            gap: 10px;
+            flex-wrap: wrap;
+            font-size: 0.95rem;
+        }
+
+        select, .input-text {
+            padding: 8px 12px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            background: #f8f9fa;
+            font-family: inherit;
+            cursor: pointer;
+        }
+
+        /* --- ESTILOS DO JOGO DE MONTAR FRASES (PARTE 4) --- */
+        .scramble-item {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border: 1px dashed #ccc;
+        }
+
+        .word-bank {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 10px 0;
+            min-height: 40px;
+        }
+
+        .answer-zone {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            min-height: 50px;
+            padding: 10px;
+            background: white;
+            border: 2px solid #ddd; /* Cor padrão */
+            border-radius: 6px;
+            align-items: center;
+            transition: border-color 0.3s;
+        }
+
+        .word-chip {
+            background-color: white;
+            border: 1px solid #4a90e2;
+            color: #4a90e2;
+            padding: 6px 14px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.9rem;
+            user-select: none;
+            transition: all 0.2s;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .word-chip:hover {
+            transform: translateY(-2px);
+            background-color: #e3f2fd;
+        }
+
+        /* Quando a palavra está na resposta */
+        .answer-zone .word-chip {
+            background-color: #4a90e2;
+            color: white;
+        }
+
+        .reset-btn {
+            background: none;
+            border: none;
+            color: #e74c3c;
+            font-size: 0.8rem;
+            cursor: pointer;
+            text-decoration: underline;
+            margin-top: 8px;
+            display: inline-block;
+        }
+
+        /* Estilo do Player de Áudio */
+        .audio-container iframe {
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container">
+            <h1 class="logo">Teacher <span>Cristian</span></h1>
+            <ul class="menu">
+                <li><a href="./index.html">← Voltar para Home</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section class="aula-header">
+            <span class="tag">Travel & Context</span>
+            <h2>Aula 10: Check-in com Animais (PETC)</h2>
+            <p>Aprenda todo o processo para viajar com seu pet na cabine: check-in, taxas e regras.</p>
+        </section>
+
+        <section class="video-container" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; background: #000;">
+            <iframe 
+                src="https://drive.google.com/file/d/15v59C9SyBxPZGfzVnXoY0TDKPYl_ltd9/preview" 
+                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;"
+                allow="autoplay; fullscreen"
+                allowfullscreen>
+            </iframe>
+        </section>
+
+        <section class="conteudo-apoio">
+            <h3>✈️ Vocabulário Essencial</h3>
+            <div class="vocab-grid">
+                <div class="vocab-card">
+                    <span class="vocab-icon">🐶</span>
+                    <span class="vocab-word">PETC</span>
+                    <span class="vocab-translation">Pet in Cabin (Pet na Cabine)</span>
+                </div>
+                <div class="vocab-card">
+                    <span class="vocab-icon">🎒</span>
+                    <span class="vocab-word">Travel Carrier</span>
+                    <span class="vocab-translation">Caixa de Transporte</span>
+                </div>
+                <div class="vocab-card">
+                    <span class="vocab-icon">💳</span>
+                    <span class="vocab-word">Fee</span>
+                    <span class="vocab-translation">Taxa / Cobrança</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="dialogue-section">
+            <h3>🎧 Listening Practice</h3>
+            <p>Ouça o áudio e acompanhe o diálogo no balcão de check-in.</p>
+            
+            <div class="audio-player audio-container">
+                <iframe src="https://drive.google.com/file/d/1uD1OHsRXXXbh75u4CnYjWzU0A2ZaJDLd/preview" width="100%" height="100" style="border:none;"></iframe>
+            </div>
+
+            <div class="transcript">
+                <div class="dialogue-line"><p class="text-en"><span class="speaker-label">Agent:</span> Good morning. How can I help you?</p><p class="text-pt">Bom dia. Como posso te ajudar?</p></div>
+                <div class="dialogue-line"><p class="text-en"><span class="speaker-label">Passenger:</span> Hi. I want to check in with my dog. He will travel with me in the cabin.</p><p class="text-pt">Oi. Quero fazer check-in com meu cachorro. Ele vai viajar comigo na cabine.</p></div>
+                <div class="dialogue-line"><p class="text-en"><span class="speaker-label">Agent:</span> Okay. Is your dog small and in a travel carrier?</p><p class="text-pt">Ok. Seu cachorro é pequeno e está na caixa de transporte?</p></div>
+                <div class="dialogue-line"><p class="text-en"><span class="speaker-label">Passenger:</span> Yes. He is small, and he is in the carrier.</p><p class="text-pt">Sim. Ele é pequeno e está na caixa.</p></div>
+                <div class="dialogue-line"><p class="text-en"><span class="speaker-label">Agent:</span> Great. He must stay <strong>under the seat</strong> in front of you.</p><p class="text-pt">Ótimo. Ele deve ficar embaixo do assento à sua frente.</p></div>
+                <div class="dialogue-line"><p class="text-en"><span class="speaker-label">Passenger:</span> No problem.</p><p class="text-pt">Sem problemas.</p></div>
+                <div class="dialogue-line"><p class="text-en"><span class="speaker-label">Agent:</span> This service is called PETC. It needs to be paid.</p><p class="text-pt">Este serviço chama-se PETC. Precisa ser pago.</p></div>
+                <div class="dialogue-line"><p class="text-en"><span class="speaker-label">Passenger:</span> How much is it?</p><p class="text-pt">Quanto custa?</p></div>
+                <div class="dialogue-line"><p class="text-en"><span class="speaker-label">Agent:</span> It is $80. You can pay by credit card or debit card.</p><p class="text-pt">É $80. Você pode pagar com cartão de crédito ou débito.</p></div>
+                <div class="dialogue-line"><p class="text-en"><span class="speaker-label">Passenger:</span> I’ll pay by credit card.</p><p class="text-pt">Vou pagar no crédito.</p></div>
+                <div class="dialogue-line"><p class="text-en"><span class="speaker-label">Agent:</span> Perfect. Please tap your card here.</p><p class="text-pt">Perfeito. Por favor, aproxime seu cartão aqui.</p></div>
+                <div class="dialogue-line"><p class="text-en"><span class="speaker-label">Passenger:</span> Done.</p><p class="text-pt">Pronto.</p></div>
+                <div class="dialogue-line"><p class="text-en"><span class="speaker-label">Agent:</span> Payment approved. Here is your boarding pass and the receipt.</p><p class="text-pt">Pagamento aprovado. Aqui está seu cartão de embarque e o recibo.</p></div>
+                <div class="dialogue-line"><p class="text-en"><span class="speaker-label">Agent:</span> Have a good flight.</p><p class="text-pt">Tenha um bom voo.</p></div>
+            </div>
+        </section>
+
+        <section class="quiz-container">
+            <h3>📝 Activity: Check-in Master</h3>
+            <p>Complete as 5 partes para ganhar sua nota.</p>
+            
+            <form id="complex-quiz">
+                
+                <div class="activity-box">
+                    <div class="activity-title">Part 1: Vocabulary Match (Ligue as colunas)</div>
+                    <div class="match-row">
+                        <label>1. Travel Carrier:</label>
+                        <select name="p1_1">
+                            <option value="">...</option>
+                            <option value="wrong">Cartão de Embarque</option>
+                            <option value="correct">Caixa de Transporte</option>
+                            <option value="wrong">Recibo</option>
+                        </select>
+                    </div>
+                    <div class="match-row">
+                        <label>2. Boarding Pass:</label>
+                        <select name="p1_2">
+                            <option value="">...</option>
+                            <option value="correct">Cartão de Embarque</option>
+                            <option value="wrong">Portão</option>
+                            <option value="wrong">Assento</option>
+                        </select>
+                    </div>
+                    <div class="match-row">
+                        <label>3. Under:</label>
+                        <select name="p1_3">
+                            <option value="">...</option>
+                            <option value="wrong">Em cima</option>
+                            <option value="correct">Embaixo / Sob</option>
+                            <option value="wrong">Ao lado</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="activity-box">
+                    <div class="activity-title">Part 2: True or False (Interpretação)</div>
+                    
+                    <div class="pergunta">
+                        <p>1. The passenger is traveling alone (sozinho, sem ninguém/nada).</p>
+                        <label><input type="radio" name="p2_1" value="false"> True</label>
+                        <label><input type="radio" name="p2_1" value="true"> False</label>
+                    </div>
+                    <div class="pergunta">
+                        <p>2. The service costs $80.</p>
+                        <label><input type="radio" name="p2_2" value="true"> True</label>
+                        <label><input type="radio" name="p2_2" value="false"> False</label>
+                    </div>
+                    <div class="pergunta">
+                        <p>3. The dog must stay on the passenger's lap (no colo).</p>
+                        <label><input type="radio" name="p2_3" value="false"> True</label>
+                        <label><input type="radio" name="p2_3" value="true"> False</label>
+                    </div>
+                </div>
+
+                <div class="activity-box">
+                    <div class="activity-title">Part 3: Complete sentences</div>
+                    <p style="font-size:0.9rem; color:#666; margin-bottom:10px;">Use: <strong>Help, Small, Under, Card</strong></p>
+                    
+                    <div class="gap-row">
+                        <span>Agent: "How can I</span>
+                        <select name="p3_1">
+                            <option value="">...</option>
+                            <option value="help">help</option>
+                            <option value="small">small</option>
+                        </select>
+                        <span>you?"</span>
+                    </div>
+                    <div class="gap-row">
+                        <span>Passenger: "My dog is</span>
+                        <select name="p3_2">
+                            <option value="">...</option>
+                            <option value="under">under</option>
+                            <option value="small">small</option>
+                        </select>
+                        <span>."</span>
+                    </div>
+                    <div class="gap-row">
+                        <span>Agent: "Please tap your</span>
+                        <select name="p3_3">
+                            <option value="">...</option>
+                            <option value="card">card</option>
+                            <option value="flight">flight</option>
+                        </select>
+                        <span>here."</span>
+                    </div>
+                </div>
+
+                <div class="activity-box">
+                    <div class="activity-title">Part 4: Unscramble (Clique para ordenar)</div>
+                    <p style="font-size:0.9rem; color:#666; margin-bottom:15px;">Clique nas palavras na ordem correta para formar a frase.</p>
+                    
+                    <div class="scramble-item" id="scramble-1" data-answer="I'll pay by credit card">
+                        <p><strong>1. (Pagamento)</strong></p>
+                        <div class="word-bank">
+                            <span class="word-chip">card</span>
+                            <span class="word-chip">I'll</span>
+                            <span class="word-chip">pay</span>
+                            <span class="word-chip">by</span>
+                            <span class="word-chip">credit</span>
+                        </div>
+                        <div class="answer-zone"></div>
+                        <button type="button" class="reset-btn">Reiniciar frase</button>
+                    </div>
+
+                    <div class="scramble-item" id="scramble-2" data-answer="My dog is in the carrier">
+                        <p><strong>2. (Onde está o cão?)</strong></p>
+                        <div class="word-bank">
+                            <span class="word-chip">is</span>
+                            <span class="word-chip">My</span>
+                            <span class="word-chip">in</span>
+                            <span class="word-chip">dog</span>
+                            <span class="word-chip">carrier</span>
+                            <span class="word-chip">the</span>
+                        </div>
+                        <div class="answer-zone"></div>
+                        <button type="button" class="reset-btn">Reiniciar frase</button>
+                    </div>
+
+                    <div class="scramble-item" id="scramble-3" data-answer="Here is your boarding pass">
+                        <p><strong>3. (Entregando o cartão)</strong></p>
+                        <div class="word-bank">
+                            <span class="word-chip">your</span>
+                            <span class="word-chip">pass</span>
+                            <span class="word-chip">is</span>
+                            <span class="word-chip">Here</span>
+                            <span class="word-chip">boarding</span>
+                        </div>
+                        <div class="answer-zone"></div>
+                        <button type="button" class="reset-btn">Reiniciar frase</button>
+                    </div>
+                </div>
+
+                <div class="activity-box">
+                    <div class="activity-title">Part 5: Math (Matemática do Texto)</div>
+                    <p>How many people are talking in the text?</p>
+                    <input type="number" name="p5_1" class="input-text" placeholder="Type a number (Ex: 5)">
+                </div>
+
+                <button type="submit" class="btn-check">Verificar Resultado Final</button>
+            </form>
+            <div id="resultado"></div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Teacher Cristian &copy; 2024</p>
+    </footer>
+
+    <script>
+        // --- 1. LÓGICA DO JOGO DE PALAVRAS (Clique para Mover) ---
+        document.querySelectorAll('.scramble-item').forEach(item => {
+            const bank = item.querySelector('.word-bank');
+            const zone = item.querySelector('.answer-zone');
+            const resetBtn = item.querySelector('.reset-btn');
+
+            // Função para adicionar evento de clique nas palavras
+            const addClickEvent = (wordElement) => {
+                wordElement.addEventListener('click', function() {
+                    // Se estiver no banco, vai pra zona de resposta
+                    if (this.parentElement === bank) {
+                        zone.appendChild(this);
+                        zone.style.borderColor = "#ddd"; // Reseta a cor da borda ao mexer
+                    } 
+                    // Se estiver na zona, volta pro banco
+                    else {
+                        bank.appendChild(this);
+                        zone.style.borderColor = "#ddd";
+                    }
+                });
+            };
+
+            // Inicializa as palavras existentes
+            item.querySelectorAll('.word-chip').forEach(word => addClickEvent(word));
+
+            // Botão de reiniciar a frase
+            resetBtn.addEventListener('click', () => {
+                const words = Array.from(zone.querySelectorAll('.word-chip'));
+                words.forEach(w => bank.appendChild(w));
+                zone.style.borderColor = "#ddd";
+            });
+        });
+
+        // --- 2. CORREÇÃO GERAL DO FORMULÁRIO ---
+        document.getElementById('complex-quiz').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            let score = 0;
+            const totalQuestions = 13; // 3(p1) + 3(p2) + 3(p3) + 3(p4) + 1(p5)
+
+            const formData = new FormData(this);
+            
+            // --- Correção P1 (Match) ---
+            if(formData.get('p1_1') === 'correct') score++;
+            if(formData.get('p1_2') === 'correct') score++;
+            if(formData.get('p1_3') === 'correct') score++;
+
+            // --- Correção P2 (T/F) ---
+            if(formData.get('p2_1') === 'true') score++;
+            if(formData.get('p2_2') === 'true') score++;
+            if(formData.get('p2_3') === 'true') score++;
+
+            // --- Correção P3 (Complete) ---
+            if(formData.get('p3_1') === 'help') score++;
+            if(formData.get('p3_2') === 'small') score++;
+            if(formData.get('p3_3') === 'card') score++;
+
+            // --- Correção P4 (Interativo Scramble) ---
+            const scrambles = document.querySelectorAll('.scramble-item');
+            
+            scrambles.forEach(item => {
+                // Pega a frase correta do atributo data-answer, tira espaços e deixa minúsculo
+                const correctAnswer = item.dataset.answer.replace(/\s+/g, '').toLowerCase();
+                
+                // Pega as palavras que o aluno colocou na zona de resposta
+                const userWords = Array.from(item.querySelectorAll('.answer-zone .word-chip'))
+                                       .map(w => w.innerText).join(''); 
+                
+                const userAnswer = userWords.toLowerCase();
+
+                if(userAnswer === correctAnswer && userAnswer.length > 0) {
+                    score++;
+                    item.querySelector('.answer-zone').style.borderColor = '#2ecc71'; // Borda Verde
+                    item.querySelector('.answer-zone').style.backgroundColor = '#e8f5e9';
+                } else {
+                    item.querySelector('.answer-zone').style.borderColor = '#e74c3c'; // Borda Vermelha
+                }
+            });
+
+            // --- Correção P5 (Math) ---
+            if(formData.get('p5_1') === '2') score++;
+
+            // --- EXIBIR RESULTADO ---
+            const resultDiv = document.getElementById('resultado');
+            let message = "";
+            let color = "";
+
+            // Cálculo da porcentagem
+            const percentage = Math.round((score / totalQuestions) * 100);
+
+            if(score >= 10) {
+                message = `🎉 <strong>Excellent!</strong> You got ${score}/${totalQuestions} (${percentage}%). You are ready to travel!`;
+                color = "#d4edda";
+                resultDiv.style.border = "1px solid #c3e6cb";
+                resultDiv.style.color = "#155724";
+            } else {
+                message = `📚 <strong>Good Practice!</strong> You got ${score}/${totalQuestions} (${percentage}%). Check the red boxes and try again.`;
+                color = "#fff3cd";
+                resultDiv.style.border = "1px solid #ffeeba";
+                resultDiv.style.color = "#856404";
+            }
+
+            resultDiv.innerHTML = `<div style="background:${color}; padding:20px; border-radius:8px; margin-top:20px; text-align:center; font-size:1.1rem;">
+                ${message}
+            </div>`;
+            
+            // Rola a tela até o resultado
+            resultDiv.scrollIntoView({ behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>

@@ -643,3 +643,68 @@ footer {
     font-style: italic;
     margin-left: 20px; /* Um pequeno recuo para a tradução */
 }
+
+/* --- ESTILOS PARA O JOGO DE MONTAR FRASES (INTERATIVO) --- */
+.scramble-container {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border: 1px dashed #ccc;
+}
+
+.word-bank, .answer-zone {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    min-height: 50px;
+    padding: 10px;
+    border-radius: 6px;
+}
+
+.word-bank {
+    background-color: #e3f2fd;
+    margin-bottom: 10px;
+}
+
+.answer-zone {
+    background-color: white;
+    border: 2px solid #4a90e2;
+    align-items: center;
+}
+
+.word-chip {
+    background-color: white;
+    border: 1px solid #4a90e2;
+    color: #4a90e2;
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    user-select: none;
+    transition: all 0.2s;
+    font-size: 0.9rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.word-chip:hover {
+    background-color: #4a90e2;
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* Quando a palavra está na área de resposta */
+.answer-zone .word-chip {
+    background-color: #4a90e2;
+    color: white;
+}
+
+.reset-btn {
+    background: none;
+    border: none;
+    color: #e74c3c;
+    font-size: 0.8rem;
+    cursor: pointer;
+    text-decoration: underline;
+    margin-top: 5px;
+}
